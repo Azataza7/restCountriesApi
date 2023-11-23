@@ -13,14 +13,16 @@ const listCountryUrl = `${BASE_URL}all?fields=alpha3Code,name`;
 const RestCountries = () => {
   const [countryList, setCountryList] = useState<ApiCountryList[]>([]);
   const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
-
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
+    setLoading(true)
+
     try {
       const response = await axios.get<ApiCountryList[]>(listCountryUrl);
       return setCountryList(response.data);
     } finally {
-      console.log('here should be preloader off');
+      setLoading(false);
     }
   };
 
@@ -34,6 +36,7 @@ const RestCountries = () => {
       <Countries
         countryList={countryList}
         onSelectCountry={(code) => setSelectedCountryCode(code)}
+        onLoading={loading}
       />
       <CountryDetails alphaCode={selectedCountryCode}/>
     </div>
