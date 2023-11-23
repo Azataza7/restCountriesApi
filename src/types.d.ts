@@ -11,6 +11,10 @@ export interface ApiCountryItem {
   population: number;
   flag: string;
   timezones: [];
-  border: [];
+  borders: [];
   languages: [];
+}
+
+export interface CountryLanguages {
+  name: string
 }

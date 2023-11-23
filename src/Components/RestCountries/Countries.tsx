@@ -6,8 +6,7 @@ interface Props {
   onSelectCountry: (code: string) => void;
 }
 
-const Countries: React.FC<Props> = ({countryList, onSelectCountry}) => {
-
+const Countries: React.FC<Props> = React.memo(({countryList, onSelectCountry}) => {
   const countries = (
     countryList.map((country, index) => (
       <span key={index} onClick={() => onSelectCountry(country.alpha3Code)}>{country.name}</span>
@@ -19,6 +18,8 @@ const Countries: React.FC<Props> = ({countryList, onSelectCountry}) => {
       {countries}
     </div>
   );
-};
+}, (prevProps, nextProps) => {
+  return prevProps.countryList === nextProps.countryList;
+});
 
 export default Countries;

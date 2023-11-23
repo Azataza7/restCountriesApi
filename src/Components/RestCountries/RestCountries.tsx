@@ -28,6 +28,7 @@ const RestCountries = () => {
     void fetchData();
   }, []);
 
+
   return (
     <div className="rest-country">
       <Countries

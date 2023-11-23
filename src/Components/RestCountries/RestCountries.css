@@ -3,7 +3,8 @@
   overflow-y: scroll;
 
   flex-basis: 30%;
-  border: 1px solid red;
+  border: 3px solid purple;
+  border-radius: 10px;
   padding: 10px;
 }
 
@@ -14,10 +15,46 @@
   margin-bottom: 5px;
 }
 
+.countries span:hover {
+  background-color: purple;
+}
+
 .rest-country {
   display: flex;
 }
 
 .country-details {
   flex-basis: 70%;
+}
+
+.country-img {
+  max-width: 170px;
+  max-height: 100px;
+}
+
+.head-country {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-country {
+  flex-basis: 50%;
+  padding-left: 10%;
+  font-size: 20px;
+}
+
+.body-country span{
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.body-country {
+  padding: 15px;
+}
+
+.languages {
+  display: inline-flex;
+  gap: 10px;
 }
