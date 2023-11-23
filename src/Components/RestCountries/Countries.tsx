@@ -6,7 +6,7 @@ interface Props {
   onSelectCountry: (code: string) => void;
 }
 
-const Countries: React.FC<Props> = React.memo(({countryList, onSelectCountry}) => {
+const Countries = React.memo(({countryList, onSelectCountry}:Props) => {
   const countries = (
     countryList.map((country, index) => (
       <span key={index} onClick={() => onSelectCountry(country.alpha3Code)}>{country.name}</span>

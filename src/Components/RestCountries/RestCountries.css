@@ -13,10 +13,12 @@
   font-size: 18px;
   cursor: pointer;
   margin-bottom: 5px;
+  transform: scale(1.0);
 }
 
 .countries span:hover {
   background-color: purple;
+  transform: scale(1.1);
 }
 
 .rest-country {
@@ -25,17 +27,25 @@
 
 .country-details {
   flex-basis: 70%;
+  border: 3px solid purple;
+  border-radius: 10px;
 }
 
 .country-img {
   max-width: 170px;
   max-height: 100px;
+  background-color: white;
+}
+
+.country-img:hover {
+  box-shadow: 10px 10px 10px rgba(234, 224, 224, 0.2);
 }
 
 .head-country {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px;
 }
 
 .name-country {
@@ -44,10 +54,11 @@
   font-size: 20px;
 }
 
-.body-country span{
+.body-country span {
   display: block;
   font-size: 18px;
   margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .body-country {
@@ -57,4 +68,17 @@
 .languages {
   display: inline-flex;
   gap: 10px;
+}
+
+.bordering-countries {
+  height: 150px;
+  overflow-y: scroll;
+}
+
+.no-country {
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  font-weight: 600;
+  font-size: 24px;
 }

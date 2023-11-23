@@ -22,7 +22,7 @@ const CountryDetails: React.FC<Props> = ({alphaCode}) => {
         if (!response.data.borders) {
           setBorderItem([]);
         } else {
-          const borderPromises = response.data.borders.map(async (borderCode) => {
+          const borderPromises = response.data.borders.map(async (borderCode: string) => {
             const borderResponse = await axios.get<ApiCountryItem>(countryUrl + borderCode);
             return borderResponse.data.name;
           });
@@ -40,10 +40,6 @@ const CountryDetails: React.FC<Props> = ({alphaCode}) => {
   useEffect(() => {
     void fetchCountryItem();
   }, [fetchCountryItem]);
-
-  useEffect(() => {
-    console.log(countryItem);
-  }, [countryItem]);
 
   return (
     <div className="country-details">
@@ -67,12 +63,12 @@ const CountryDetails: React.FC<Props> = ({alphaCode}) => {
           </div>
           <ul className="bordering-countries">
             {borderCountry &&
-            borderCountry.map((border, i) =>
+            borderCountry.map((border: string, i) =>
               <li key={i}>{border}</li>)}
           </ul>
         </div>
       ) : (
-        <p>No country selected</p>
+        <p className="no-country">No country selected</p>
       )}
     </div>
   );
